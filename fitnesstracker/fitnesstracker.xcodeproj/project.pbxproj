@@ -12,6 +12,8 @@
 		0477FDAD2216481C0085AB6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0477FDAB2216481C0085AB6E /* Main.storyboard */; };
 		0477FDAF2216481E0085AB6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0477FDAE2216481E0085AB6E /* Assets.xcassets */; };
 		0477FDB22216481E0085AB6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0477FDB02216481E0085AB6E /* LaunchScreen.storyboard */; };
+		04A6AA28223AFE1000D16664 /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6AA27223AFE1000D16664 /* LogViewModel.swift */; };
+		04A6AA2A223AFF6800D16664 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6AA29223AFF6800D16664 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		0477FDAE2216481E0085AB6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0477FDB12216481E0085AB6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0477FDB32216481E0085AB6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A6AA27223AFE1000D16664 /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
+		04A6AA29223AFF6800D16664 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				0477FDA72216481C0085AB6E /* AppDelegate.swift */,
 				0477FDA92216481C0085AB6E /* ViewController.swift */,
 				0477FDAB2216481C0085AB6E /* Main.storyboard */,
+				04A6AA27223AFE1000D16664 /* LogViewModel.swift */,
+				04A6AA29223AFF6800D16664 /* APIClient.swift */,
 				0477FDAE2216481E0085AB6E /* Assets.xcassets */,
 				0477FDB02216481E0085AB6E /* LaunchScreen.storyboard */,
 				0477FDB32216481E0085AB6E /* Info.plist */,
@@ -136,7 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0477FDAA2216481C0085AB6E /* ViewController.swift in Sources */,
+				04A6AA28223AFE1000D16664 /* LogViewModel.swift in Sources */,
 				0477FDA82216481C0085AB6E /* AppDelegate.swift in Sources */,
+				04A6AA2A223AFF6800D16664 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
