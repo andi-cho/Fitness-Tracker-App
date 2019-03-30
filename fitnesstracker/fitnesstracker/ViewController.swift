@@ -37,10 +37,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dailyLogCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dailyLogCell", for: indexPath) as? ExerciseTableViewCell
+        guard let exerciseCell = cell else {return UITableViewCell()}
         guard let dailyLog = dailyLog else {return UITableViewCell()}
-        cell.textLabel?.text = dailyLog.exercises[indexPath.row].name
-        return cell
+        exerciseCell.exerciseNameLabel.text = dailyLog.exercises[indexPath.row].name
+        exerciseCell.repCountLabel.text = "\(dailyLog.exercises[indexPath.row].sets.reps)"
+        exerciseCell.weightLabel.text = "\(dailyLog.exercises[indexPath.row].sets.weights)"
+        
+        
+       
+        return exerciseCell
     }
 
 

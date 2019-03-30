@@ -42,4 +42,24 @@ extension APIClient {
             }.resume()
         
     }
+    
+    /*
+    func createLog(completion: @escaping (DailyLog)->()){
+        let URLString = "https://api.myjson.com/bins/jsqou"
+        guard let url = URL(string: URLString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let jsonData = data {
+                do {
+                    
+                    let dailyLog = try JSONDecoder().decode(DailyLog.self, from:jsonData)
+                    completion(dailyLog)
+                } catch {
+                    print(error)
+                }
+            }
+            }.resume()
+        
+    }
+ */
 }
