@@ -12,12 +12,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var dailyLog: DailyLog?
     
+    @IBAction func addLog(_ sender: Any) {
+        self.performSegue(withIdentifier: "addLog", sender: self)
+    }
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
+        /*
         let apiClient = APIClient.sharedinstance
         apiClient.getDailyLog { (currentDailyLog) in
     
@@ -26,6 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.tableView.reloadData()
             }
         }
+        */
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -41,14 +46,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let exerciseCell = cell else {return UITableViewCell()}
         guard let dailyLog = dailyLog else {return UITableViewCell()}
         exerciseCell.exerciseNameLabel.text = dailyLog.exercises[indexPath.row].name
-        exerciseCell.repCountLabel.text = "\(dailyLog.exercises[indexPath.row].sets.reps)"
-        exerciseCell.weightLabel.text = "\(dailyLog.exercises[indexPath.row].sets.weights)"
-        
-        
+      //  exerciseCell.repCountLabel.text = "\(dailyLog.exercises[indexPath.row].set.reps)"
+     //   exerciseCell.weightLabel.text = "\(dailyLog.exercises[indexPath.row].set.weights)"
        
         return exerciseCell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 159
+    }
+    
 
 }
 

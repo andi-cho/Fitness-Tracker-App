@@ -8,16 +8,41 @@
 
 import Foundation
 
+struct Template: Codable {
+    let name: String
+    let templateID: Int
+    let exercise: Exercise
+    
+    init(name: String, exercise: Exercise){
+        self.name = name
+        self.exercise = exercise
+        self.templateID = 0
+    }
+    
+}
+
 struct Exercise: Codable {
     let name: String
     let exerciseID: Int
     let templateID: Int
-    let sets: Sets
+    var sets: [Set]
+    
+    init(name: String){
+        self.name = name
+        self.exerciseID = 0
+        self.templateID = 0
+        self.sets = []
+    }
 }
 
-struct Sets: Codable {
+struct Set: Codable {
     let reps: Int
     let weights: Int
+    
+    init(reps: Int,  weights: Int){
+        self.reps = reps
+        self.weights = weights
+    }
 }
 
 struct DailyLog: Codable {

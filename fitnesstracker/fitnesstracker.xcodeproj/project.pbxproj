@@ -15,6 +15,10 @@
 		04A6AA28223AFE1000D16664 /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6AA27223AFE1000D16664 /* LogViewModel.swift */; };
 		04A6AA2A223AFF6800D16664 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6AA29223AFF6800D16664 /* APIClient.swift */; };
 		04A6AA2C224E6D8700D16664 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6AA2B224E6D8700D16664 /* ExerciseTableViewCell.swift */; };
+		EB0941FB2256BF59004B8D1B /* AddTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0941FA2256BF59004B8D1B /* AddTemplateViewController.swift */; };
+		EB0941FD2256C59F004B8D1B /* TemplateExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0941FC2256C59F004B8D1B /* TemplateExerciseTableViewCell.swift */; };
+		EB2987AF225D4574000B6856 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2987AE225D4574000B6856 /* AddExerciseViewController.swift */; };
+		EB2987B1225D4B96000B6856 /* SetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2987B0225D4B96000B6856 /* SetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		04A6AA27223AFE1000D16664 /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
 		04A6AA29223AFF6800D16664 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		04A6AA2B224E6D8700D16664 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		EB0941FA2256BF59004B8D1B /* AddTemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTemplateViewController.swift; sourceTree = "<group>"; };
+		EB0941FC2256C59F004B8D1B /* TemplateExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		EB2987AE225D4574000B6856 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
+		EB2987B0225D4B96000B6856 /* SetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +75,12 @@
 				04A6AA27223AFE1000D16664 /* LogViewModel.swift */,
 				04A6AA29223AFF6800D16664 /* APIClient.swift */,
 				0477FDAE2216481E0085AB6E /* Assets.xcassets */,
+				EB0941FA2256BF59004B8D1B /* AddTemplateViewController.swift */,
+				EB2987B0225D4B96000B6856 /* SetTableViewCell.swift */,
+				EB2987AE225D4574000B6856 /* AddExerciseViewController.swift */,
 				0477FDB02216481E0085AB6E /* LaunchScreen.storyboard */,
 				0477FDB32216481E0085AB6E /* Info.plist */,
+				EB0941FC2256C59F004B8D1B /* TemplateExerciseTableViewCell.swift */,
 			);
 			path = fitnesstracker;
 			sourceTree = "<group>";
@@ -144,6 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB2987B1225D4B96000B6856 /* SetTableViewCell.swift in Sources */,
+				EB0941FD2256C59F004B8D1B /* TemplateExerciseTableViewCell.swift in Sources */,
+				EB0941FB2256BF59004B8D1B /* AddTemplateViewController.swift in Sources */,
+				EB2987AF225D4574000B6856 /* AddExerciseViewController.swift in Sources */,
 				0477FDAA2216481C0085AB6E /* ViewController.swift in Sources */,
 				04A6AA2C224E6D8700D16664 /* ExerciseTableViewCell.swift in Sources */,
 				04A6AA28223AFE1000D16664 /* LogViewModel.swift in Sources */,
