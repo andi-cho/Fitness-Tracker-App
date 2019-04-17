@@ -9,14 +9,48 @@
 import UIKit
 
 class AddExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    @IBAction func addSet(_ sender: Any) {
+         let alertController = UIAlertController(title: "New Set", message: "Input weight and number of reps.", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Weight"
+            })
+        alertController.addTextField(configurationHandler: { (textField2) in
+            textField2.placeholder = "Reps"
+        })
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (alertAction) in
+            
+            let textField = alertController.textFields![0] as UITextField
+            let textField2 = alertController.textFields![1] as UITextField
+            
+            var set = Set(reps: Int(textField2.text!)!, weights: Int(textField.text!)!)
+            
+            self.appendSet(set: set)
+        })
+    alertController.addAction(cancelAction)
+    alertController.addAction(saveAction)
+    
+    self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func appendSet(set: Set){
+        sets.append(set)
+        customizeExerciseTableView.reloadData()
+    }
+    
+    
     @IBOutlet weak var customizeExerciseTableView: UITableView!
     
     var template : Template!
+    var exerciseName: String!
     var sets : [Set] = [] //data source
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.exerciseName = template.name
         self.title = template.name
         customizeExerciseTableView.delegate = self
         customizeExerciseTableView.dataSource = self
@@ -40,6 +74,24 @@ class AddExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func addToLog(_ sender: Any) {
+        var exerciseParam = ExerciseParameters(name: exerciseName)
+        exerciseParam.sets = sets
+        
+        let jsonData = try! JSONEncoder().encode(exerciseParam)
+        let jsonString = String(data: jsonData, encoding: .utf8)!
+        print(jsonString)
+        
+        let apiClient = APIClient.sharedinstance
+        apiClient.createExercise(jsonData: jsonData, completion: { (response) in
+            //check if error, display an error message
+            //otherwise go
+            print(response)
+        })
+        
+        
+        //send request
+        //go to daily log screen
+        //reload data
         
     }
 

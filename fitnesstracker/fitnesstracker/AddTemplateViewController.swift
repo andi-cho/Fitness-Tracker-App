@@ -22,10 +22,10 @@ class AddTemplateViewController: UIViewController, UITableViewDelegate, UITableV
         addTableView.dataSource = self
 
         //Hardcoding some templates
-        var sets = [Set(reps: 2, weights: 100), Set(reps: 4, weights: 10)]
+        let sets = [Set(reps: 2, weights: 100), Set(reps: 4, weights: 10)]
         var exercise = Exercise(name: "Squat")
         exercise.sets = sets
-        var temp1 = Template(name: "Squat", exercise: exercise)
+        let temp1 = Template(name: "Squat", exercise: exercise)
       //  var temp2 = Template(name: "Bench", exercise: Exercise(name: "Bench"))
       //  var temp3 = Template(name: "Pull Ups", exercise: Exercise(name: "Pull Ups"))
         

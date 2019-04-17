@@ -14,4 +14,5 @@ class ExerciseTableViewCell: UITableViewCell {
     @IBOutlet weak var repCountLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
+
 }

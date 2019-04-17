@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var dailyLog: DailyLog?
+    var dailyLog: [Exercise]?
     
     @IBAction func addLog(_ sender: Any) {
         self.performSegue(withIdentifier: "addLog", sender: self)
@@ -21,22 +21,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        /*
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        let dateString = dateFormatter.string(from: date)// Jan 2, 2001
+        self.title = dateString
+        
         let apiClient = APIClient.sharedinstance
         apiClient.getDailyLog { (currentDailyLog) in
-    
+            
             self.dailyLog = currentDailyLog
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                //print(self.dailyLog)
             }
         }
-        */
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let dailyLog = dailyLog else {return 0}
-        return dailyLog.exercises.count
+        return dailyLog.count
         
         
     }
@@ -45,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "dailyLogCell", for: indexPath) as? ExerciseTableViewCell
         guard let exerciseCell = cell else {return UITableViewCell()}
         guard let dailyLog = dailyLog else {return UITableViewCell()}
-        exerciseCell.exerciseNameLabel.text = dailyLog.exercises[indexPath.row].name
+        exerciseCell.exerciseNameLabel.text = dailyLog[indexPath.row].name
       //  exerciseCell.repCountLabel.text = "\(dailyLog.exercises[indexPath.row].set.reps)"
      //   exerciseCell.weightLabel.text = "\(dailyLog.exercises[indexPath.row].set.weights)"
        

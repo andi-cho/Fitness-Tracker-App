@@ -21,17 +21,30 @@ struct Template: Codable {
     
 }
 
-struct Exercise: Codable {
+struct ExerciseParameters: Codable {
     let name: String
-    let exerciseID: Int
-    let templateID: Int
     var sets: [Set]
+   
     
     init(name: String){
         self.name = name
-        self.exerciseID = 0
-        self.templateID = 0
         self.sets = []
+    }
+}
+
+struct Exercise: Codable {
+    let _id: String
+    let name: String
+    let templateID: String
+    var sets: [Set]
+    let created: String
+    
+    init(name: String){
+        self.name = name
+        self.templateID = ""
+        self.sets = []
+        self.created = ""
+        self._id = ""
     }
 }
 
@@ -50,15 +63,15 @@ struct DailyLog: Codable {
 }
 
 extension APIClient {
-    func getDailyLog(completion: @escaping (DailyLog)->()){
-        let URLString = "https://api.myjson.com/bins/jsqou"
+    func getDailyLog(completion: @escaping ([Exercise])->()){
+        let URLString = "https://workoutapp-api-heroku.herokuapp.com/exercises"
         guard let url = URL(string: URLString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let jsonData = data {
                 do {
                     
-                    let dailyLog = try JSONDecoder().decode(DailyLog.self, from:jsonData)
+                    let dailyLog = try JSONDecoder().decode([Exercise].self, from:jsonData)
                     completion(dailyLog)
                 } catch {
                     print(error)
@@ -68,17 +81,27 @@ extension APIClient {
         
     }
     
-    /*
-    func createLog(completion: @escaping (DailyLog)->()){
-        let URLString = "https://api.myjson.com/bins/jsqou"
+    
+    func createExercise(jsonData: Data, completion: @escaping (String)->()){
+        let URLString = "https://workoutapp-api-heroku.herokuapp.com/exercises"
         guard let url = URL(string: URLString) else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers["Content-Type"] = "application/json"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = jsonData
+        
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let jsonData = data {
                 do {
                     
-                    let dailyLog = try JSONDecoder().decode(DailyLog.self, from:jsonData)
-                    completion(dailyLog)
+                   // let jsonResponse = try JSONDecoder().decode(String.self, from:jsonData)
+                    let jsonString = String(data: jsonData, encoding: .utf8)!
+                    print(jsonString)
+                    completion(jsonString)
                 } catch {
                     print(error)
                 }
@@ -86,5 +109,5 @@ extension APIClient {
             }.resume()
         
     }
- */
+ 
 }
