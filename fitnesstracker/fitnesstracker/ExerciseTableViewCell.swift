@@ -10,7 +10,6 @@ import UIKit
 
 class ExerciseTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var repCountLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     

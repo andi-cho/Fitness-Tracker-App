@@ -85,7 +85,12 @@ class AddExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         apiClient.createExercise(jsonData: jsonData, completion: { (response) in
             //check if error, display an error message
             //otherwise go
-            print(response)
+            if (response == "Done."){
+                self.displayLog()
+            }else{
+                //create an alert
+                print("you fucked up")
+            }
         })
         
         
@@ -95,6 +100,11 @@ class AddExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
 
+    func displayLog(){
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "displayLogSegue", sender: self)
+        }
+    }
     /*
     // MARK: - Navigation
 
