@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dailyLogCell" rowHeight="159" id="RDX-tR-6hr" customClass="ExerciseTableViewCell" customModule="fitnesstracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="159"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dailyLogCell" rowHeight="105" id="RDX-tR-6hr" customClass="ExerciseTableViewCell" customModule="fitnesstracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RDX-tR-6hr" id="AiY-Jm-JpM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="158.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfD-dK-PpJ">
@@ -63,13 +63,22 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="dailyLog" id="Unl-6A-sTQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dfO-KP-M4Z">
-                            <connections>
-                                <segue destination="H5D-gz-5lU" kind="show" id="7Je-DU-tWP"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="dfO-KP-M4Z">
+                                <connections>
+                                    <segue destination="H5D-gz-5lU" kind="show" id="7Je-DU-tWP"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="Yrj-8y-4oD">
+                                <connections>
+                                    <segue destination="RwB-XG-sSC" kind="show" id="dcC-jq-vF7"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="iND-Ex-lHU" id="pCZ-ZM-vJ0"/>
                     </connections>
@@ -116,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gBz-i8-J2t">
-                                <rect key="frame" x="0.0" y="20" width="375" height="486"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="398"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="setCell" id="Qtg-Ge-8yi" customClass="SetTableViewCell" customModule="fitnesstracker" customModuleProvider="target">
@@ -160,7 +169,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5W-Bk-Y0J">
-                                <rect key="frame" x="150" y="593" width="75" height="30"/>
+                                <rect key="frame" x="150" y="549" width="75" height="30"/>
                                 <state key="normal" title="Add to Log">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -199,6 +208,69 @@
             </objects>
             <point key="canvasLocation" x="2289" y="-394"/>
         </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="Akz-TW-pbT">
+            <objects>
+                <viewController id="RwB-XG-sSC" customClass="CalendarViewController" customModule="fitnesstracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aPF-3o-p6H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XGo-de-Oqq" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="16" y="84" width="343" height="303"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="erJ-qJ-mYU">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="fS1-ac-zWY" customClass="DateCell" customModule="fitnesstracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateHere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EC9-MT-QXU">
+                                                    <rect key="frame" x="5" y="19" width="41" height="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="EC9-MT-QXU" secondAttribute="bottom" constant="20" id="9QO-c0-b1d"/>
+                                            <constraint firstItem="EC9-MT-QXU" firstAttribute="top" secondItem="fS1-ac-zWY" secondAttribute="top" constant="19" id="C3E-qT-P3h"/>
+                                            <constraint firstItem="EC9-MT-QXU" firstAttribute="leading" secondItem="fS1-ac-zWY" secondAttribute="leading" constant="5" id="o83-PB-bVa"/>
+                                            <constraint firstAttribute="trailing" secondItem="EC9-MT-QXU" secondAttribute="trailing" constant="4" id="u9m-yB-DlW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="EC9-MT-QXU" id="Gmk-yI-pgJ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XGo-de-Oqq" firstAttribute="top" secondItem="Udp-xB-ScW" secondAttribute="top" constant="20" id="4aJ-9M-JQ1"/>
+                            <constraint firstItem="XGo-de-Oqq" firstAttribute="leading" secondItem="Udp-xB-ScW" secondAttribute="leading" constant="16" id="Ehg-Dg-Q7u"/>
+                            <constraint firstItem="Udp-xB-ScW" firstAttribute="trailing" secondItem="XGo-de-Oqq" secondAttribute="trailing" constant="16" id="FSF-Lj-seb"/>
+                            <constraint firstItem="Udp-xB-ScW" firstAttribute="bottom" secondItem="XGo-de-Oqq" secondAttribute="bottom" constant="236" id="mgn-wY-sqB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Udp-xB-ScW"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="XGo-de-Oqq" id="ZO6-GO-4Sc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4tU-IO-0EO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="-1118"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="p1G-il-hYv">
             <objects>
@@ -219,7 +291,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Je-DU-tWP"/>
-        <segue reference="CUn-a2-cR4"/>
+        <segue reference="XhG-k4-NsP"/>
     </inferredMetricsTieBreakers>
 </document>
