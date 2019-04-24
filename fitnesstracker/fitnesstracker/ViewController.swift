@@ -106,6 +106,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 extension CalendarViewController: JTAppleCalendarViewDataSource,JTAppleCalendarViewDelegate {
     
+    func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
+    let formatter = DateFormatter()  // Declare this outside, to avoid instancing this heavy class multiple times.
+    formatter.dateFormat = "MMM"
+    
+    let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "DateHeader", for: indexPath) as! DateHeader
+    header.monthTitle.text = formatter.string(from: range.start)
+    return header
+    }
+    
+    func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
+    return MonthSize(defaultSize: 50)
+    }
     
     func configureCalendar(_ calendar: JTAppleCalendarView) ->  ConfigurationParameters {
     let formatter = DateFormatter()

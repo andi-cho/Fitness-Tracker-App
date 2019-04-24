@@ -9,9 +9,12 @@
 import UIKit
 import JTAppleCalendar
 
+class DateHeader: JTAppleCollectionReusableView  {
+    @IBOutlet var monthTitle: UILabel!
+}
+
 class CalendarViewController: UIViewController {
-    @IBOutlet weak var calendarView: JTAppleCalendarView!
-    
+    @IBOutlet var calendarView: JTAppleCalendarView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,7 @@ class CalendarViewController: UIViewController {
         calendarView.calendarDataSource = self
         // Do any additional setup after loading the view.
     }
+    
     
 
     /*

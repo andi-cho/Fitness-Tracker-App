@@ -216,18 +216,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XGo-de-Oqq" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XGo-de-Oqq" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
                                 <rect key="frame" x="16" y="84" width="343" height="303"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="erJ-qJ-mYU">
                                     <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="fS1-ac-zWY" customClass="DateCell" customModule="fitnesstracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="50" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -252,15 +253,31 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DateHeader" id="BFo-Yj-gUb" customClass="DateHeader" customModule="fitnesstracker" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKz-56-7QA">
+                                            <rect key="frame" x="123" y="15" width="96" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.41590901679999998" green="0.65668628610000002" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="GKz-56-7QA" firstAttribute="leading" secondItem="BFo-Yj-gUb" secondAttribute="leadingMargin" constant="115" id="Blm-Sa-e1I"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GKz-56-7QA" secondAttribute="bottom" constant="6" id="RaX-G3-sMB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="GKz-56-7QA" secondAttribute="trailing" constant="116" id="Vgz-rr-Lrw"/>
+                                        <constraint firstItem="GKz-56-7QA" firstAttribute="top" secondItem="BFo-Yj-gUb" secondAttribute="topMargin" constant="7" id="wcT-Od-HV6"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="monthTitle" destination="GKz-56-7QA" id="aMi-uc-W4B"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="XGo-de-Oqq" firstAttribute="top" secondItem="Udp-xB-ScW" secondAttribute="top" constant="20" id="4aJ-9M-JQ1"/>
-                            <constraint firstItem="XGo-de-Oqq" firstAttribute="leading" secondItem="Udp-xB-ScW" secondAttribute="leading" constant="16" id="Ehg-Dg-Q7u"/>
-                            <constraint firstItem="Udp-xB-ScW" firstAttribute="trailing" secondItem="XGo-de-Oqq" secondAttribute="trailing" constant="16" id="FSF-Lj-seb"/>
-                            <constraint firstItem="Udp-xB-ScW" firstAttribute="bottom" secondItem="XGo-de-Oqq" secondAttribute="bottom" constant="236" id="mgn-wY-sqB"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Udp-xB-ScW"/>
                     </view>
                     <connections>
@@ -269,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tU-IO-0EO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="681" y="-1118"/>
+            <point key="canvasLocation" x="680.79999999999995" y="-1118.5907046476761"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3rp-Xq-xhk">
